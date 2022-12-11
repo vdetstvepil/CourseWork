@@ -1,0 +1,12 @@
+{
+    "name": "walternascimentobarroso/default",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+  "require": {
+    "ext-pgsql": "*",
+    "ext-dom": "*"
+  }
+}

@@ -1,0 +1,233 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    margin: 0;
+}
+body {
+    margin: 0;
+    background-color: #050504;
+}
+h1 {
+    font-weight: 700;
+    font-size: 64px;
+    text-align: center;
+}
+h2 {
+    font-weight: 700;
+    font-size: 36px;
+    text-align: left;
+}
+h3 {
+    font-weight: 600;
+    font-size: 28px;
+    text-align: left;
+}
+h4 {
+    font-weight: 600;
+    font-size: 24px;
+    text-align: left;
+}
+h4 {
+    font-weight: 600;
+    font-size: 20px;
+    text-align: left;
+}
+p {
+    font-weight: 400;
+    font-size: 16px;
+}
+button {
+    font-weight: 700;
+    font-size: 40px;
+}
+
+/* Навбар */
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #050504;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    transition: top 0.3s;
+    z-index: 1000;
+    gap: 15px;
+}
+
+header div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+header #logo {
+    width: 67px;
+    height: 42px;
+    transition: all .2s ease-in-out;
+}
+header #logo:hover {
+    transform: scale(1.2);
+}
+header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+header li {
+    float: left;
+    margin-left: 10px;
+}
+
+header li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: border-bottom-color 0.2s;
+}
+
+header li a:hover {
+    border-bottom: outset #FFB800;
+}
+
+header .btn-reg {
+    border: outset #FFB800;
+    transition: background-color 0.3s;
+    margin-left: 40px;
+}
+
+header .btn-reg:hover {
+    background-color: #FFB800;
+    border: outset #FFB800;
+}
+
+
+/* Скроллбар */
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #181818;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+section {
+    height: 100vh;
+    width: 100%;
+}
+
+footer {
+    width: 100%;
+}
+
+#logo {
+    width: 67px;
+    height: 42px;
+}
+
+/* Секция main */
+.main-section {
+    display: flex;
+    align-items: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    justify-content: flex-start;
+
+}
+.main-section .rectangle-back {
+    background-color: #ffb800;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.main-section .rectangle-back h1, .main-section .rectangle-back h4 {
+    color: black;
+}
+.main-section .rectangle-inside {
+    border: 5px outset #FFB800;
+    background-color: #2f2f2f;
+    transform: translate(25px, 25px);
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+}
+.main-section .rectangle-inside .content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 30px;
+}
+.main-section .rectangle-inside form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.main-section .rectangle-inside #asterisk {
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0.5;
+}
+.main-section .rectangle-inside input[type=text], input[type=password] {
+    border: 5px outset #FFB800;
+    background-color: transparent;
+
+    width: 100%;
+    padding: 6px 10px;
+    margin: 6px 0;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 18px;
+}
+.main-section .rectangle-inside .field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.main-section .rectangle-inside .error {
+    color: #FF0000;
+    font-size: 14px;
+    font-weight: 600;
+}
+.main-section .rectangle-inside .footer {
+    opacity: 0.5;
+}
+.main-section .rectangle-inside .choose-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.main-section .rectangle-inside .choose-panel label {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+.main-section .rectangle-inside input[type=submit] {
+    border: 5px outset #FFB800;
+    transition: background-color 0.3s;
+    background-color: transparent;
+    padding: 10px 20px;
+    cursor: pointer;
+    align-self: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.main-section .rectangle-inside input[type=submit]:hover {
+    background-color: #FFB800;
+    border: 5px outset #FFB800;
+}
+
