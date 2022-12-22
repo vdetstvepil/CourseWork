@@ -108,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $question = test_input($_POST["question"]);
-    $got = date('d-m-Y H:i:s');
+    $got = date('Y-m-d H:i:s');
 
     // Если все
     if ($check) {
