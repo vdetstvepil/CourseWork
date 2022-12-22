@@ -27,6 +27,13 @@
                     <img class="avatar" src="Resources/profile-user.png" />
                 </div>
             </div>
+            <div style="width: 100%; display: flex; align-items: center; gap: 10px;">
+                <h3>Сортировать по: </h3>
+                <a class="button" href="lms.php?sort=surname">по фамилии</a>
+                <a class="button" href="lms.php?sort=name">по имени</a>
+                <a class="button" href="lms.php?sort=patronymic">по отчеству</a>
+            </div>
+
             <div id="forms" class="form-panel">
 
             </div>

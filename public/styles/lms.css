@@ -202,3 +202,23 @@ button {
     border-radius: 10px;
 }
 
+.body-section .button {
+    border: 5px solid #ffb800;
+    border-radius: 10px;
+    background: #ffffff;
+    font-weight: 700;
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.body-section .btn-erase {
+    border: 5px solid #ff0000;
+    border-radius: 10px;
+    background: #ffffff;
+    font-weight: 700;
+    color: black;
+    padding: 5px;
+    text-decoration: none;
+}
+

@@ -114,11 +114,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($check) {
         $conn_string = "host=pg_container port=5432 dbname=test_db user=root password=root";
         $conn = pg_connect($conn_string);
-        $query = "INSERT INTO candidate (
-                       got, fio, city, university, grade, phone, telegram, skills_summary, project_summary, reason_summary, questions) 
-                       VALUES ('$got', '$name', '$city', '$edu', '$grade', '$phone', '$telegram', '$skills', '$proj', '$reason', '$question');";
-        $result = pg_query($conn, $query    );
+        $query = "INSERT INTO \"user\" (user_id, surname, name, patronymic, email, password) VALUES (gen_random_uuid(), ' ', '$name', ' ', '$email', ' ');";
+        $result = pg_query($conn, $query);
 
+        $query = "SELECT user_id FROM \"user\" LIMIT 1 OFFSET (SELECT COUNT(*) FROM \"user\") - 1;";
+        $result = pg_query($conn, $query);
+        $uuid = pg_fetch_result($result, 0, 0);
+
+        $query = "INSERT INTO candidate (user_id, age, city, university, grade, phone, telegram, personal_info_approval, status_id) 
+                        VALUES ('$uuid', '18', '$name', '$edu', '$grade', '$phone', '$telegram', 'True', 0);";
+        $result = pg_query($conn, $query);
+
+        $query = "SELECT candidate_id FROM candidate LIMIT 1 OFFSET (SELECT COUNT(*) FROM candidate) - 1;";
+        $result = pg_query($conn, $query);
+        $candidateid = pg_fetch_result($result, 0, 0);
+
+        $query = "INSERT INTO form (candidate_id, skills_summary, project_summary, reason_summary, questions) 
+                VALUES ('$candidateid', '$skills', '$proj', '$reason', '$question')";
+        $result = pg_query($conn, $query);
 
         header('Location: success.php');
         exit();
@@ -202,31 +215,31 @@ function test_input($data) {
                     </div>
                     <div class="choose-panel">
                         <label>
-                            <input type="radio" name="grade" <?php if (isset($grade) && $grade=="school9") echo "checked";?> value="9 класс">
+                            <input type="radio" name="grade" <?php if (isset($grade) && $grade=="school9") echo "checked";?> value="9">
                             <p>9 класс</p>
                         </label>
                         <label>
-                            <input type="radio" name="grade" <?php if (isset($grade) && $grade=="school10") echo "checked";?> value="10 класс">
+                            <input type="radio" name="grade" <?php if (isset($grade) && $grade=="school10") echo "checked";?> value="10">
                             <p>10 класс</p>
                         </label>
                         <label>
-                            <input type="radio" name="grade" <?php if (isset($grade) && $grade=="school11") echo "checked";?> value="11 класс">
+                            <input type="radio" name="grade" <?php if (isset($grade) && $grade=="school11") echo "checked";?> value="11">
                             <p>11 класс</p>
                         </label>
                         <label>
-                            <input type="radio" name="grade" <?php if (isset($grade) && $grade=="grade1") echo "checked";?> value="1 курс">
+                            <input type="radio" name="grade" <?php if (isset($grade) && $grade=="grade1") echo "checked";?> value="1">
                             <p>1 курс</p>
                         </label>
                         <label>
-                            <input type="radio" name="grade" <?php if (isset($grade) && $grade=="grade2") echo "checked";?> value="2 курс">
+                            <input type="radio" name="grade" <?php if (isset($grade) && $grade=="grade2") echo "checked";?> value="2">
                             <p>2 курс</p>
                         </label>
                         <label>
-                            <input type="radio" name="grade" <?php if (isset($grade) && $grade=="grade3") echo "checked";?> value="3 курс">
+                            <input type="radio" name="grade" <?php if (isset($grade) && $grade=="grade3") echo "checked";?> value="3">
                             <p>3 курс</p>
                         </label>
                         <label>
-                            <input type="radio" name="grade" <?php if (isset($grade) && $grade=="grade4") echo "checked";?> value="Другое">
+                            <input type="radio" name="grade" <?php if (isset($grade) && $grade=="grade4") echo "checked";?> value="4">
                             <p>4 курс</p>
                         </label>
                         <span class="error"><?php echo $gradeErr;?></span>

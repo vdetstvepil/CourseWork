@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($check) {
         $conn_string = "host=pg_container port=5432 dbname=test_db user=root password=root";
         $conn = pg_connect($conn_string);
-        $query = "SELECT * FROM users WHERE email='$email' AND password='$pwd'";
+        $query = "SELECT * FROM \"user\" WHERE email='$email' AND \"password\"='$pwd'";
         $result = pg_query($conn, $query);
 
         if (pg_num_rows($result) == 0) {
