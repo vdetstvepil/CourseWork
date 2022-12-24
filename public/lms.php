@@ -101,6 +101,5 @@ else {
         $dom->getElementById('forms')->appendChild($fragment);
     }
 
-
     echo $dom->saveXML();
 }

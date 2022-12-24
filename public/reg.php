@@ -3,8 +3,6 @@
 $nameErr = $eduErr = $cityErr = $gradeErr = $phoneErr = $emailErr = $telegramErr = $skillsErr = $projErr = $reasonErr = "";
 $name = $edu = $city = $phone = $email = $telegram = $skills = $proj = $reason = $question = "";
 
-
-
 // Если сервер вернул результат, то обрабатываем пришедшие данные
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
